@@ -1,0 +1,17 @@
+{
+  "name": "lambdatest-playwright-sample",
+  "scripts": {
+    "tests": "node src/run-tests.js"
+  },
+  "engines": {
+    "node": ">=12.7.0"
+  },
+  "devDependencies": {
+    "@cucumber/cucumber": "^7.3.2",
+    "@playwright/test": "1.20.2",
+    "playwright": "1.20.2"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3"
+  }
+}
