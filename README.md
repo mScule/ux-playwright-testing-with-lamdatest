@@ -6,4 +6,4 @@
 ## Playwright commands
 | Command         | Description |
 |-----------------|-------------|
-| `npm run tests` | Runs tests  |
+| `npx playwright test` | Runs tests  |
