@@ -3,6 +3,8 @@ const { test } = require("../utils/test");
 
 const emailFormValidation = () => {
   test("Email form validation", async ({ page }) => {
+    await page.goto("https://areena.yle.fi/tv");
+    await expect(page).toHaveURL("https://areena.yle.fi/tv");
     /*
     const loginForm = () =>
       page.frameLocator(`role=dialog[name="kirjaudu sisään"] >> iframe`);
