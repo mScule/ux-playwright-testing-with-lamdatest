@@ -1,3 +1,3 @@
-const { emailFormValidation } = require("./tests/email_form_validation");
+const { newsTimeNameTest } = require("./tests/news_time_and_name");
 
-emailFormValidation();
+newsTimeNameTest();
