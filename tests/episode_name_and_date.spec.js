@@ -1,4 +1,6 @@
-import { test, expect } from '@playwright/test';
+import { expect } from '@playwright/test';
+import { test } from '../lambdatest-setup';
+
 test('Test case for finding name and date of Kummeli, Season 3, Episode 5 ', async ({ page, browserName }) => {
   
   await page.goto('https://areena.yle.fi/1-3339547');
