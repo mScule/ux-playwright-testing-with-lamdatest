@@ -32,7 +32,6 @@ export const createAxeA11yReport = async (page, title) => {
                 title.toLowerCase().replace(/\s/g, "-")
             }-${reportDateString}.html`;
 
-        // suggestion on how to create file by yourself
         if (!fs.existsSync(reportPath)) {
             fs.mkdirSync('reports', {
                 recursive: true,
