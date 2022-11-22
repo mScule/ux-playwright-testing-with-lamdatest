@@ -4,6 +4,9 @@
 [See installation guide](./doc/installation.md).
 
 ## Playwright commands
-| Command         | Description |
-|-----------------|-------------|
+| Command               | Description |
+|-----------------------|-------------|
 | `npx playwright test` | Runs tests  |
+
+## AXE Accessability test reports
+AXE Accessability test reports can be read from the reports folder.
