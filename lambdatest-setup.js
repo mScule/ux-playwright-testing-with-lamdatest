@@ -2,7 +2,9 @@
  * Add the file in your test suite to run tests on LambdaTest.
  * Import `test` object from this file in the tests.
  */
-const base = require('@playwright/test')
+const base = require('@playwright/test');
+//const { injectAxe } = require('axe-playwright');
+const AxeBuilder = require('@axe-core/playwright').default;
 const path = require('path')
 const { chromium } = require('playwright')
 const env = require("dotenv").config().parsed;
@@ -51,6 +53,16 @@ exports.test = base.test.extend({
 
       const ltPage = await browser.newPage(testInfo.project.use)
       await use(ltPage)
+
+      try {
+        const axe = await new AxeBuilder({ ltPage })
+          .withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa']);
+        const results = await axe.analyze();
+        console.log(results);
+      } catch (e) {
+        // do something with the error
+        console.log("Axe error: " + e.message);
+      }
 
       const testStatus = {
         action: 'setTestStatus',

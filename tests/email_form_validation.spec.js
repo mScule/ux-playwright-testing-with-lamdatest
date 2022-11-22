@@ -1,7 +1,8 @@
 import { expect } from '@playwright/test';
 import { test } from '../lambdatest-setup';
+import { createAxeA11yReport } from '../util/create-axe-a11y-report';
 
-test('Test email form validation', async ({ page, browserName }) => {
+test('Test email form validation', async ({ page, browserName }, testInfo) => {
   const loginForm = () =>
     page.frameLocator(`role=dialog[name="kirjaudu sisään"] >> iframe`);
 
@@ -16,6 +17,8 @@ test('Test email form validation', async ({ page, browserName }) => {
 
   const goToYleRegisterationForm = async () => {
     await page.goto('https://areena.yle.fi/tv');
+
+    await createAxeA11yReport(page, testInfo.title);
 
     if (browserName === "firefox" || browserName === "webkit")
       await page.getByRole('button', { name: 'Vain välttämättömät' }).click();
