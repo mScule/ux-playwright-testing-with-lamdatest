@@ -1,9 +1,12 @@
 import { expect } from '@playwright/test';
 import { test } from '../lambdatest-setup';
+import { createAxeA11yReport } from '../util/create-axe-a11y-report';
 
-test('Test case for finding name and date of Kummeli, Season 3, Episode 5 ', async ({ page, browserName }) => {
+test('Test case for finding name and date of Kummeli, Season 3, Episode 5 ', async ({ page, browserName }, testInfo) => {
   
   await page.goto('https://areena.yle.fi/1-3339547');
+  
+  await createAxeA11yReport(page, testInfo.title);
 
   if (browserName === "firefox" || browserName === "webkit")
   	await page.getByRole('button', { name: 'Vain välttämättömät' }).click();
