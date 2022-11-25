@@ -1,8 +1,11 @@
 import { expect } from '@playwright/test';
 import { test } from '../lambdatest-setup';
+import { createAxeA11yReport } from '../util/create-axe-a11y-report';
 
-test('Test clicking on channel logos and names', async ({ page }) => {
+test('Test clicking on channel logos and names', async ({ page }, testInfo) => {
     await page.goto('https://areena.yle.fi/tv/opas');
+
+    await createAxeA11yReport(page, testInfo.title);
 
     await page.getByRole('heading', { name: 'Yle TV1' }).getByRole('link', { name: 'Yle TV1' }).click();
     await expect(page).toHaveURL('https://areena.yle.fi/tv/ohjelmat/yle-tv1');
