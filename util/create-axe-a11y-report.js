@@ -12,11 +12,11 @@ export const createAxeA11yReport = async (page, title) => {
 
         const reportDate = new Date();
         const reportDateString =
-            numPadding(reportDate.getFullYear()) + "-" +
-            numPadding(reportDate.getMonth())    + "-" +
-            numPadding(reportDate.getDate())     + "-" +
-            numPadding(reportDate.getHours())    + "-" +
-            numPadding(reportDate.getMinutes())  + "-" +
+            numPadding(reportDate.getFullYear())  + "-" +
+            numPadding(reportDate.getMonth() + 1) + "-" +
+            numPadding(reportDate.getDate())      + "-" +
+            numPadding(reportDate.getHours())     + "-" +
+            numPadding(reportDate.getMinutes())   + "-" +
             numPadding(reportDate.getSeconds());
 
         const reportHTML = createHtmlReport({
