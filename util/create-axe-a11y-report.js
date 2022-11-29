@@ -28,9 +28,9 @@ export const createAxeA11yReport = async (page, title) => {
         });
 
         const reportPath =
-            `reports/accessability-report-${
+            `reports/${reportDateString}-${
                 title.toLowerCase().replace(/\s/g, "-")
-            }-${reportDateString}.html`;
+            }.html`;
 
         if (!fs.existsSync(reportPath)) {
             fs.mkdirSync('reports', {
